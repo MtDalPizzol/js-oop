@@ -1,0 +1,42 @@
+main {
+    padding-top: 32px;
+}
+.clear::after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+li input {
+  display: none;
+}
+.edit-mode span {
+  display: none;
+}
+.edit-mode input {
+  width: 70%;
+  display: block;
+}
+.count {
+  display: inline-block;
+  padding: 0px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+}
+.total-in-lists {
+  padding: 16px;
+  text-align: center;
+}
+.parallax-container {
+  height: 210px;
+}
+.parallax-overlay {
+  position: absolute;
+  background: rgba(33,150,243,0.50);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+}

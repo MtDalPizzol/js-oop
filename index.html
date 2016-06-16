@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="screen" charset="utf-8">
+
+  </head>
+  <body>
+
+  <header class="parallax-container">
+    <div class="parallax">
+      <img src="img/parallax.jpg">
+      <div class="parallax-overlay" style="position: absolute; top: 0; left: 0; width: 100%;">
+        <div class="container">
+          <h1>JS OOP ToDo App</h1>
+          <h4>A simple event based ToDo app written with JS OOP</h4>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <main>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="total-in-lists deep-orange lighten-5">
+            Total de tarefas em todas as listas:&nbsp;&nbsp;<span id="total-master" class="count deep-orange"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 0;">
+        <section id="tasks" class="col s6">
+          Tarefas na <strong>Lista 1</strong>: <span id="tasks-counter" class="count blue lighten-3"></span>
+          <form id="tasks-form" class="form">
+            <input type="text" class="form-control" placeholder="Nova tarefa...">
+            <button type="submit" id="action" class="blue waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Adicionar tarefa</button>
+          </form>
+          <ul id="tasks-list" class="collection"></ul>
+        </section>
+        <section id="tasks2" class="col s6">
+          Tarefas na <strong>Lista 2</strong>: <span id="tasks2-counter" class="count blue lighten-3"></span>
+          <form id="tasks2-form" class="form">
+            <input type="text" class="form-control" placeholder="Nova tarefa...">
+            <button type="submit" id="action" class="blue waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Adicionar tarefa</button>
+          </form>
+          <ul id="tasks2-list" class="collection"></ul>
+        </section>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="total-in-lists blue lighten-5">
+            Total de tarefas nas listas <strong>1</strong> e <strong>2</strong>:&nbsp;&nbsp;<span id="total" class="count blue"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 0;">
+        <section id="tasks3" class="col s6">
+          Tarefas na <strong>Lista 3</strong>: <span id="tasks3-counter" class="count teal lighten-3"></span>
+          <form id="tasks3-form" class="form">
+            <input type="text" class="form-control" placeholder="Nova tarefa...">
+            <button type="submit" id="action" class="waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Adicionar tarefa</button>
+          </form>
+          <ul id="tasks3-list" class="collection"></ul>
+        </section>
+        <section id="tasks4" class="col s6">
+          Tarefas na <strong>Lista 4</strong>: <span id="tasks4-counter" class="count teal lighten-3"></span>
+          <form id="tasks4-form" class="form">
+            <input type="text" class="form-control" placeholder="Nova tarefa...">
+            <button type="submit" id="action" class="waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Adicionar tarefa</button>
+          </form>
+          <ul id="tasks4-list" class="collection"></ul>
+        </section>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="total-in-lists teal lighten-5">
+            Total de tarefas nas listas <strong>3</strong> e <strong>4</strong>:&nbsp;&nbsp;<span id="total2" class="count teal"></span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+  <script src="js/Task.js" charset="utf-8"></script>
+  <script src="js/TaskList.js" charset="utf-8"></script>
+  <script src="js/TaskListUI.js" charset="utf-8"></script>
+  <script src="js/TaskCounterUI.js" charset="utf-8"></script>
+  <script src="js/TaskTotalUI.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+
+  </body>
+</html>
