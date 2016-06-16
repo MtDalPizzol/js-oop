@@ -6,7 +6,7 @@ var list1 = new TaskListUI('#tasks');
 var list1Counter = new TaskCounterUI('#tasks-counter', list1);
 
 var list2 = new TaskListUI('#tasks2');
-// var list2Counter = new TaskCounterUI('#tasks2-counter', list2);
+var list2Counter = new TaskCounterUI('#tasks2-counter', list2);
 
 var list3 = new TaskListUI('#tasks3');
 var list3Counter = new TaskCounterUI('#tasks3-counter', list3);
