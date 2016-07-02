@@ -1,19 +1,6 @@
 function TaskListUI(container) {
 
-  this.id = container.replace('#', '');
-  this.model = new TaskList();
-
-  this.eventKeys = {
-    taskAdded: this.id + ':task:added',
-    taskUpdated: this.id + ':task:updated',
-    taskRemoved: this.id + ':task:removed'
-  };
-
-  this.events = {
-    taskAdded: new Event(this.eventKeys.taskAdded),
-    taskUpdated: new Event(this.eventKeys.taskUpdated),
-    taskRemoved: new Event(this.eventKeys.taskRemoved)
-  };
+  this.model = new TaskList(container);
 
   this.cacheElements(container);
   this.bindEvents();
@@ -30,9 +17,9 @@ TaskListUI.prototype.cacheElements = function (container) {
 
 TaskListUI.prototype.bindEvents = function () {
   this.form.addEventListener('submit', this.addTask.bind(this));
-  document.addEventListener(this.eventKeys.taskAdded, this.renderList.bind(this));
-  document.addEventListener(this.eventKeys.taskAdded, this.formClearer.bind(this));
-  document.addEventListener(this.eventKeys.taskRemoved, this.renderList.bind(this));
+  document.addEventListener(this.model.eventKeys.taskAdded, this.renderList.bind(this));
+  document.addEventListener(this.model.eventKeys.taskAdded, this.formClearer.bind(this));
+  document.addEventListener(this.model.eventKeys.taskRemoved, this.renderList.bind(this));
 };
 
 TaskListUI.prototype.formClearer = function (event) {
@@ -43,11 +30,7 @@ TaskListUI.prototype.addTask = function (event) {
   event.preventDefault();
   var text = this.form.querySelector('input').value;
   var task = new Task(text);
-  if(this.model.addTask(task)) {
-    this.events.taskAdded.task = task;
-    this.events.taskAdded.count = this.model.count;
-    document.dispatchEvent(this.events.taskAdded);
-  }
+  this.model.addTask(task);
 };
 
 TaskListUI.prototype.editTask = function (event) {
@@ -62,16 +45,13 @@ TaskListUI.prototype.editTask = function (event) {
 
 TaskListUI.prototype.updateTask = function (event) {
   var li = event.target.closest('li');
-  var task = this.model.getTask(li.dataset.id);
-  var result = task.update({
+  var result = this.model.updateTask(li.dataset.id, {
     text: event.target.value
   });
   if(result) {
     li.classList.remove('edit-mode');
     var span = li.querySelector('span');
     span.textContent = result.text;
-    this.events.taskUpdated.task = task;
-    document.dispatchEvent(this.events.taskUpdated);
   }
 };
 
@@ -90,8 +70,6 @@ TaskListUI.prototype.removeTask = function (event) {
   var sure = confirm('Deseja realmente excluir a tarefa "' + task.text  + '"?');
   if (sure) {
     this.model.removeTask(task);
-    this.events.taskRemoved.count = this.model.count;
-    document.dispatchEvent(this.events.taskRemoved);
   }
 };
 

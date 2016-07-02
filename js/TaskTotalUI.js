@@ -18,8 +18,8 @@ TaskTotalUI.prototype.cacheElements = function (container) {
 TaskTotalUI.prototype.bindEvents = function () {
 
   this.lists.forEach(function(list){
-    document.addEventListener(list.eventKeys.taskAdded, this.update.bind(this));
-    document.addEventListener(list.eventKeys.taskRemoved, this.update.bind(this));
+    document.addEventListener(list.model.eventKeys.taskAdded, this.update.bind(this));
+    document.addEventListener(list.model.eventKeys.taskRemoved, this.update.bind(this));
   }.bind(this));
 
 };
