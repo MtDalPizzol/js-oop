@@ -63,11 +63,11 @@ TaskListUI.prototype.updateTaskOnKeyPress = function (event) {
 
 TaskListUI.prototype.removeTask = function (event) {
   if (!event.target.dataset.id) {
-    alert('É preciso informar o ID da tarefa');
+    alert('The task ID is required');
     return;
   }
   var task = this.model.getTask(event.target.dataset.id);
-  var sure = confirm('Deseja realmente excluir a tarefa "' + task.text  + '"?');
+  var sure = confirm('Delete task "' + task.text  + '"?');
   if (sure) {
     this.model.removeTask(task);
   }
@@ -85,7 +85,7 @@ TaskListUI.prototype.renderList = function () {
     li.classList.add('collection-item', 'grey', 'lighten-3');
 
     var span = document.createElement('span');
-    span.textContent = 'Não há tarefas! Tire uma folga!';
+    span.textContent = 'There is no tasks! Take a break...';
 
     li.appendChild(span);
 
